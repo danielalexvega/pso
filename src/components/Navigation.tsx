@@ -28,13 +28,17 @@ const Navigation: FC = () => {
             .languageParameter((lang ?? "default") as LanguageCodenames)
             .collections([collectionFilter as CollectionCodenames])
             .toPromise()
-            .then(res => res.data.items[0]?.elements.subpages.linkedItems.map(subpage => ({
-              name: subpage.elements.headline.value,
-              link: subpage.elements.url.value,
-            })))
+            .then(res => {
+              const landingPage = res.data.items[0];
+              if (!landingPage) return [];
+              return landingPage.elements.subpages.linkedItems.map(subpage => ({
+                name: subpage.elements.headline.value,
+                link: subpage.elements.url.value,
+              }));
+            })
             .catch((err) => {
               if (err instanceof DeliveryError) {
-                return null;
+                return [];
               }
               throw err;
             }),
