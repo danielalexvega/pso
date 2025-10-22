@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BlogPage from "./pages/BlogPage.tsx";
 import Layout from "./components/Layout.tsx";
 import BlogDetail from "./pages/BlogDetail.tsx";
-
+import EventPage from "./pages/EventPage.tsx";
 
 import NotFound from "./components/NotFound.tsx";
 import ArticlesListingPage from "./pages/ArticlesListingPage.tsx";
@@ -35,7 +35,10 @@ const BaseRouting: RouteObject[] = [
     path: "blog/:slug",
     Component: BlogDetail,
   },
-
+  {
+    path: "event/:slug",
+    Component: EventPage,
+  },
 
   {
     path: "research",

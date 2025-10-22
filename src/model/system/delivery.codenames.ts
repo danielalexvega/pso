@@ -121,7 +121,7 @@ export type ElementCodenames =
   | "introduction"
   | "job_title"
   | "last_name"
-  | "location_90d6138"
+  | "location_tag"
   | "location"
   | "metadata__description"
   | "metadata__keywords"

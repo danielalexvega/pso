@@ -16,7 +16,7 @@
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { CoreContentType } from "../system/index.ts";
 import type { EventType, TaxonomyLocation } from "../taxonomies/index.ts";
-import type { Location, Performance, Person, Sponsor } from "./index.ts";
+import type { ContentLocation as Location, Performance, Person, Sponsor } from "./index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
 
 /**
@@ -105,10 +105,10 @@ export type Event = CoreContentType<
      *
      * Type: taxonomy
      * Required: false
-     * Codename: location_90d6138
+     * Codename: location_tag
      * Id: 90d61383-320d-4d52-8664-93777ea68b02
      */
-    readonly location_90d6138: Elements.TaxonomyElement<TaxonomyLocation, "location_90d6138">;
+    readonly location_tag: Elements.TaxonomyElement<TaxonomyLocation, "location_tag">;
     /**
      * Performances
      *
@@ -127,6 +127,15 @@ export type Event = CoreContentType<
      * Id: f9434ea6-8bcb-4754-9b0a-6cbb38fee6da
      */
     readonly performer: Elements.LinkedItemsElement<Person>;
+    /**
+     * URL Slug
+     *
+     * Type: url_slug
+     * Required: true
+     * Codename: url_slug
+     * Id: 8bc84f2b-d81d-441f-b28f-d35d260ee63e
+     */
+    readonly url_slug: Elements.UrlSlugElement;
     /**
      * Program
      *
@@ -162,12 +171,13 @@ export type EventElementCodenames =
   | "location"
   | "accessibility"
   | "event_type"
-  | "location_90d6138"
+  | "location_tag"
   | "performances"
   | "performer"
   | "metadata__title"
   | "metadata__keywords"
   | "metadata__description"
+  | "url_slug"
   | "program"
   | "sponsors";
 
