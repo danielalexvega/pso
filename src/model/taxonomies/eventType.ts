@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: Pittsburgh Cultural Trust 🐧
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -17,15 +17,29 @@
  * All taxonomy codename values for Event Type
  *
  * Codename: event_type
- * Id: 54519543-3e87-541d-a060-1246d721db5e
+ * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
  */
-export const eventTypeValues = ["seminar", "webinar", "workshop"] as const;
+export const eventTypeValues = [
+  "free",
+  "talks___poetry",
+  "visual_arts",
+  "workshops___classes",
+  "ballet___dance",
+  "broadway___musical_theater",
+  "live_music",
+  "opera",
+  "film",
+  "family",
+  "classical",
+  "comedy",
+  "concert",
+] as const;
 
 /**
  * Type representing Event Type taxonomy
  *
  * Codename: event_type
- * Id: 54519543-3e87-541d-a060-1246d721db5e
+ * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
  */
 export type EventType = (typeof eventTypeValues)[number];
 
@@ -33,7 +47,7 @@ export type EventType = (typeof eventTypeValues)[number];
  * Type guard for Event Type
  *
  * Codename: event_type
- * Id: 54519543-3e87-541d-a060-1246d721db5e
+ * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
  */
 export function isEventType(value: string | undefined | null): value is EventType {
   return typeof value === "string" && (eventTypeValues as readonly string[]).includes(value);

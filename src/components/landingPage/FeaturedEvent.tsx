@@ -6,7 +6,6 @@ import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import { defaultPortableRichTextResolvers } from "../../utils/richtext";
 import { Replace } from "../../utils/types";
 import { PortableText } from "@kontent-ai/rich-text-resolver/utils/react";
-import Tags from "../Tags";
 import Link from "../Link";
 import { createItemSmartLink } from "../../utils/smartlink";
 
@@ -45,12 +44,6 @@ const FeaturedEvent: FC<FeaturedEventProps> = ({ event }) => {
                   : ""
               }`}
             </p>
-            <Tags
-              tags={[...event.elements.event_type?.value ?? [], ...event.elements.event_topic?.value ?? []].map(t =>
-                t.name
-              )}
-              className="mt-4"
-            />
             <div className="mt-4">
               <PortableText
                 value={transformToPortableText(event.elements.description?.value ?? "")}

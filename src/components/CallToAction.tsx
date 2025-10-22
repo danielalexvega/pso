@@ -38,32 +38,32 @@ const CallToActionComponent: React.FC<CallToActionProps> = ({
 
   return (
     <div
-      className={`${style === "burgundy" ? "burgundy-theme" : ""} w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 lg:px-8 xl:px-16`}
+      className={`${style === "burgundy" ? "burgundy-theme" : ""} bg-pct_pink w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 lg:px-8 xl:px-0`}
       {...createItemSmartLink(componentId, componentName)}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <div
           className={`flex flex-col ${calculateLayout(imagePosition)
-            } items-center gap-16 py-16`}
+            } items-center gap-16`}
         >
-          <div className="rounded-lg xl:w-[560px] lg:w-[420px]">
+          <div className="w-2/3 rounded-lg">
             <img
               src={imageSrc}
               width={560}
               height={420}
               alt={imageAlt}
-              className="rounded object-fit"
+              className="rounded object-cover w-full h-full"
             />
           </div>
 
-          <div className={`flex lg:flex-1 flex-col gap-5 ${imagePosition === "center" ? "items-center" : ""}`}>
-            <h2 className={`flex w-fit text-6xl font-bold text-heading-2-color`}
+          <div className={`w-1/3 ml-[15%] mr-[10%] flex flex-col gap-5 ${imagePosition === "center" ? "items-center" : ""}`}>
+            <h2 className={`flex w-fit text-[40px] text-heading-2-color tracking-tight font-light leading-[44px]`}
               {...createElementSmartLink("headline")}
             >
               {title}
             </h2>
 
-            <p className={`flex text-xl text-body-color line-clamp-5`}
+            <p className={`flex text-l text-white line-clamp-5`}
               {...createElementSmartLink("subheadline")}
             >
               {description}
@@ -72,6 +72,7 @@ const CallToActionComponent: React.FC<CallToActionProps> = ({
             <div className="flex pt-5">
               <ButtonLink
                 href={buttonHref}
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-4 py-2 rounded-[30px] transition-colors"
               >
                 {buttonText}
               </ButtonLink>

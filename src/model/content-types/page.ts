@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: Pittsburgh Cultural Trust 🐧
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -16,7 +16,7 @@
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { CoreContentType } from "../system/index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
-import type { Video, Disclaimer } from "./index.ts";
+import type { Video, Disclaimer, CallToAction } from "./index.ts";
 
 /**
  * Page
@@ -40,7 +40,7 @@ export type Page = CoreContentType<
      * Subheadline
      *
      * Type: text
-     * Required: true
+     * Required: false
      * Codename: subheadline
      * Id: 719d23e7-d174-498f-b0aa-46640791b5fb
      */
@@ -62,14 +62,14 @@ export type Page = CoreContentType<
      * Codename: body
      * Id: c5ac868e-97fe-419a-a256-635af1fb70aa
      */
-    readonly body: Elements.RichTextElement<Video | Disclaimer>;
+    readonly body: Elements.RichTextElement<Video | Disclaimer | CallToAction>;
     /**
      * URL
      *
      * Type: url_slug
-     * Required: false
+     * Required: true
      * Codename: url
-     * Id: 98b67c77-04d9-47fb-9278-f38e793bb824
+     * Id: 31e8a7c4-b997-4112-adb9-c11730348a87
      */
     readonly url: Elements.UrlSlugElement;
     /**

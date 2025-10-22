@@ -219,8 +219,6 @@ const OurTeamPage: React.FC = () => {
                 alt: member.elements.image.value[0]?.description
                   ?? member.elements.first_name.value + " " + member.elements.last_name.value,
               },
-              prefix: member.elements.prefix.value,
-              suffix: member.elements.suffixes.value,
               firstName: member.elements.first_name.value,
               lastName: member.elements.last_name.value,
               position: member.elements.job_title.value,

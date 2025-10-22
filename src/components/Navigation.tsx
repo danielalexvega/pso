@@ -44,7 +44,7 @@ const Navigation: FC = () => {
 
   const createMenuLink = (name: string, link: string) => (
     <li key={name}>
-      <NavLink to={createPreviewLink(link, isPreview)} className="text-xl leading-5 text-gray w-fit block hover:text-burgundy">{name}</NavLink>
+      <NavLink to={createPreviewLink(link, isPreview)} className="leading-5 text-pct_light w-fit block font-normal border-b-[2px] border-transparent hover:border-pct_yellow duration-200">{name}</NavLink>
     </li>
   );
 

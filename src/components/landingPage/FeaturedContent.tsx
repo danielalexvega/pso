@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { isArticle, isEvent, LandingPage } from "../../model";
+import { LandingPage } from "../../model";
 import PageSection from "../PageSection";
 import FeaturedArticle from "./FeaturedArticle";
 import FeaturedEvent from "./FeaturedEvent";
@@ -15,7 +15,8 @@ type FeaturedContentProps = {
 const FeaturedContent: FC<FeaturedContentProps> = ({ featuredContent, parentId }) => {
   const linkedItems = featuredContent.linkedItems.map(
     (item) => {
-      if (isArticle(item)) {
+      // Check if it's an Article by looking for article-specific properties
+      if (item.system.type === "article" && 'title' in item.elements && 'publish_date' in item.elements) {
         return (
           <PageSection color="bg-creme" key={item.system.codename}>
             <FeaturedArticle
@@ -27,7 +28,6 @@ const FeaturedContent: FC<FeaturedContentProps> = ({ featuredContent, parentId }
                 title: item.elements.title.value,
                 publishDate: item.elements.publish_date.value ?? "",
                 introduction: item.elements.introduction.value,
-                topics: item.elements.topics.value.map(t => t.name),
                 itemId: item.system.id,
               }}
               displayFeatured={true}
@@ -37,25 +37,27 @@ const FeaturedContent: FC<FeaturedContentProps> = ({ featuredContent, parentId }
         );
       }
 
-      if (isEvent(item)) {
+      // Check if it's an Event by looking for event-specific properties
+      if (item.system.type === "event" && 'name' in item.elements && 'start_date' in item.elements) {
         return (
           <PageSection color="bg-creme" key={item.system.codename}>
-            <FeaturedEvent event={item} />
+            <FeaturedEvent event={item as any} />
           </PageSection>
         );
       }
 
+      // Default to CallToAction for other content types
       return (
         <PageSection color="bg-burgundy" key={item.system.codename}>
           <div className="pt-24 pb-40">
             <CallToAction
-              title={item.elements.headline.value}
-              description={item.elements.subheadline.value}
-              buttonText={item.elements.button_label.value}
-              buttonHref={item.elements.button_link.value[0] ?? ""}
+              title={(item.elements as any).headline?.value || ""}
+              description={(item.elements as any).subheadline?.value || ""}
+              buttonText={(item.elements as any).button_label?.value || ""}
+              buttonHref={(item.elements as any).button_link?.value?.[0] ?? ""}
               imageSrc={item.elements.image.value[0]?.url}
               imageAlt={item.elements.image.value[0]?.description ?? "alt"}
-              imagePosition={item.elements.image_position.value[0]?.codename ?? "left"}
+              imagePosition={(item.elements as any).image_position?.value?.[0]?.codename ?? "left"}
               style="burgundy"
               componentId={item.system.id}
               componentName={item.system.name}

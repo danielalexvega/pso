@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: Pittsburgh Cultural Trust 🐧
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -22,90 +22,132 @@ export type LanguageCodenames = "de-DE" | "default" | "es-ES";
  * Type representing all content types
  */
 export type ContentTypeCodenames =
+  | "_performance"
   | "article"
   | "blog_post"
+  | "call_to_action__copy_"
   | "call_to_action"
   | "disclaimer"
   | "event"
+  | "hero_button"
+  | "landing_page__copy_"
   | "landing_page"
+  | "location"
   | "page"
   | "person"
-  | "service"
+  | "series"
+  | "sponsor"
   | "video";
 
 /**
  * Type representing all collections
  */
-export type CollectionCodenames = "default";
+export type CollectionCodenames =
+  | "_high_school_for_creative_and_performing_arts"
+  | "_pittsburgh_ballet_theatre"
+  | "_pittsburgh_opera"
+  | "default"
+  | "marketing_resources"
+  | "operations"
+  | "pittsburgh_clo"
+  | "pittsburgh_cultural_trust"
+  | "pittsburgh_public_theater"
+  | "pittsburgh_symphony_orchestra";
 
 /**
  * Type representing all workflows
  */
-export type WorkflowCodenames = "default";
+export type WorkflowCodenames =
+  | "_symphony_event_workflow_collection__"
+  | "default"
+  | "event_workflow"
+  | "opera_event_workflow"
+  | "pittsburgh_ballet_theatre_event";
 
 /**
  * Type representing all taxonomies
  */
-export type TaxonomyCodenames =
-  | "article_type"
-  | "event_topic"
-  | "event_type"
-  | "general_healthcare_topics"
-  | "medical_specialties";
+export type TaxonomyCodenames = "blog_type" | "event_type" | "location" | "organization";
 
 /**
  * Type representing all worksflow steps across all workflows
  */
-export type WorkflowStepCodenames = "archived" | "draft" | "published" | "scheduled";
+export type WorkflowStepCodenames =
+  | "archived"
+  | "copy_review_dfb5b46"
+  | "copy_review"
+  | "draft_2ca84ed"
+  | "draft_61df217"
+  | "draft_78e5d6f"
+  | "draft_c0bc7fe"
+  | "draft"
+  | "published"
+  | "review_5056e1d"
+  | "review"
+  | "scheduled";
 
 /**
  * Type representing all element codenames across all content types
  */
 export type ElementCodenames =
-  | "article_type"
+  | "accessibility"
   | "author"
   | "autoplay"
   | "biography"
+  | "blog_type"
   | "body_copy"
   | "body"
   | "button_label"
   | "button_link"
+  | "button_text"
   | "caption"
+  | "chair"
+  | "city"
   | "description"
   | "email"
   | "end_date"
-  | "event_topic"
   | "event_type"
+  | "event"
+  | "events"
   | "featured_content"
+  | "featured_events_in_hero"
   | "first_name"
   | "guidelines"
   | "headline"
   | "hero_image"
+  | "hero_links"
   | "image_position"
   | "image"
   | "introduction"
   | "job_title"
   | "last_name"
-  | "medical_specialties"
+  | "location_90d6138"
+  | "location"
   | "metadata__description"
   | "metadata__keywords"
   | "metadata__title"
   | "metadata"
   | "name"
+  | "page"
+  | "performances"
+  | "performer"
   | "phone"
-  | "prefix"
+  | "photo_credits"
+  | "program"
   | "publish_date"
   | "related_articles"
+  | "sponsor_logo"
+  | "sponsors"
   | "start_date"
+  | "state"
+  | "street_address"
   | "subheadline"
   | "subpages"
-  | "suffixes"
-  | "summary"
-  | "team"
+  | "time_and_date"
   | "title"
-  | "topics"
   | "type"
   | "url_slug"
   | "url"
   | "video_link"
-  | "website";
+  | "website"
+  | "zipcode";

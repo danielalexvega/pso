@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3 {
-  @apply font-libre;
-}
+
 
 :root {
   --color-burgundy: #993265;
   --color-azure: #009edb;
+  --color-pct_purple: #42124e;
   --color-white: #ffffff;
   --color-grey: #3b3b3b;
   --color-grey-light: #8e8e8e;
@@ -22,7 +21,7 @@ h1, h2, h3 {
   --color-background: var(--color--white);
 
   --color-heading-1: var(--color-burgundy);
-  --color-heading-2: var(--color-azure);
+  --color-heading-2: var(--color-white);
   --color-heading-3: var(--color-azure);
   --color-heading-4: var(--color-azure);
 
@@ -35,9 +34,9 @@ h1, h2, h3 {
   --color-link-hover: var(--color-azure);
 
   --color-button-background: transparent;
-  --color-button-background-hover: var(--color-burgundy);
-  --color-button-border: var(--color-burgundy);
-  --color-button-border-hover: var(--color-burgundy);
+  --color-button-background-hover: var(--color-pct_purple);
+  --color-button-border: var(--color-white);
+  --color-button-border-hover: var(--color-white);
   --color-button-text: #000000;
   --color-button-text-hover: var(--color-white);
 
@@ -45,7 +44,7 @@ h1, h2, h3 {
   --color-tag-text: var(--color-grey-dark);
 
   --size-heading-1: 94px;
-  --size-heading-2: 48px;
+  --size-heading-2: 40px;
   --size-heading-3: 32px;
   --size-heading-4: 20px;
 
@@ -55,7 +54,7 @@ h1, h2, h3 {
   --line-height-heading-4: 84%;
 
   --font-weight-heading-1: 800;
-  --font-weight-heading-2: 800;
+  --font-weight-heading-2: 300;
   --font-weight-heading-3: 800;
   --font-weight-heading-4: 800;
 }
@@ -127,7 +126,7 @@ h1, h2, h3 {
   --line-height-heading-4: 170%;
 
   --font-weight-heading-1: 800;
-  --font-weight-heading-2: 800;
-  --font-weight-heading-3: 800;
-  --font-weight-heading-4: 700;
+  --font-weight-heading-2: 300;
+  --font-weight-heading-3: 300;
+  --font-weight-heading-4: 300;
 }

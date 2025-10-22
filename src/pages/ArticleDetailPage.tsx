@@ -4,7 +4,6 @@ import { createClient } from "../utils/client";
 import { useAppContext } from "../context/AppContext";
 import { Article, LanguageCodenames } from "../model";
 import PageSection from "../components/PageSection";
-import Tags from "../components/Tags";
 import { NavLink } from "react-router";
 import PersonCard from "../components/PersonCard";
 import ArticleList from "../components/articles/ArticleList";
@@ -166,10 +165,8 @@ const ArticleDetailPage: React.FC = () => {
             </h1>
             {author && (
               <HeroImageAuthorCard
-                prefix={author.elements.prefix?.value}
                 firstName={author.elements.first_name?.value || ""}
                 lastName={author.elements.last_name?.value || ""}
-                suffix={author.elements.suffixes?.value}
                 publishDate={formattedDate}
                 image={{
                   url: author.elements.image?.value[0]?.url || "",
@@ -179,7 +176,7 @@ const ArticleDetailPage: React.FC = () => {
                 language={article.system.language}
               />
             )}
-            {article.elements.topics.value.length > 0 && article.system.language === "default" && (
+            {/* {article.elements.topics.value.length > 0 && article.system.language === "default" && (
               <Tags
                 tags={article.elements.topics.value.map(topic => topic.name)}
                 orientation="horizontal"
@@ -187,7 +184,7 @@ const ArticleDetailPage: React.FC = () => {
                 itemId={article.system.id}
                 elementCodename="topics"
               />
-            )}
+            )} */}
           </div>
           <div className="flex-1">
             <img
@@ -226,10 +223,8 @@ const ArticleDetailPage: React.FC = () => {
             </h2>
             <div className="text-body-lg text-body-color">
               <PersonCard
-                prefix={author.elements.prefix?.value}
                 firstName={author.elements.first_name?.value || ""}
                 lastName={author.elements.last_name?.value || ""}
-                suffix={author.elements.suffixes?.value}
                 jobTitle={author.elements.job_title?.value || ""}
                 image={{
                   url: author.elements.image?.value[0]?.url || "",
@@ -257,7 +252,7 @@ const ArticleDetailPage: React.FC = () => {
                 urlSlug: article.elements.url_slug.value,
                 introduction: article.elements.introduction.value,
                 publishDate: article.elements.publish_date.value ?? "",
-                topics: article.elements.topics.value.map(topic => topic.name),
+            
                 itemId: article.system.id,
               }))}
             />

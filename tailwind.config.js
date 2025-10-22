@@ -11,6 +11,10 @@ export default {
         burgundy: "#993265",
         azure: "#009edb",
         white: '#ffffff',
+        pct_purple:'#42124e',
+        pct_light: '#ececec',
+        pct_yellow: '#FAA61B',
+        pct_pink:'#ae476a',
         grey: {
           light: "#8e8e8e",
           DEFAULT: "#3b3b3b",
@@ -58,7 +62,7 @@ export default {
 
     },
       fontFamily: {
-        sans: ['"Source Sans 3"', 'Arial', 'sans-serif'],
+        sans: ['"Inter Variable"', 'Inter', 'Arial', 'sans-serif'],
         libre: ['"Abhaya Libre"', "Arial"]
       }
     },

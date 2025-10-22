@@ -1,6 +1,6 @@
 import React from "react";
 import FeaturedComponentBase from "./FeaturedComponentBase";
-import Tags from "../Tags";
+// import Tags from "../Tags";
 import Link from "../Link";
 import { createItemSmartLink } from "../../utils/smartlink";
 
@@ -13,7 +13,6 @@ type FeaturedArticleProps = Readonly<{
     title: string;
     publishDate: string;
     introduction: string;
-    topics: ReadonlyArray<string>;
     itemId: string;
   }>;
   displayFeatured?: boolean;
@@ -47,10 +46,7 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({ article, displayFeatu
                 })
               }`}
           </p>
-          <Tags
-            tags={article.topics}
-            className="mt-4"
-          />
+
           <p className="text-left text-gray-700 mt-4 text-body-lg">
             {article.introduction}
           </p>

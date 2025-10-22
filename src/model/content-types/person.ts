@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: Pittsburgh Cultural Trust 🐧
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -44,24 +44,6 @@ export type Person = CoreContentType<
      */
     readonly last_name: Elements.TextElement;
     /**
-     * Prefix
-     *
-     * Type: text
-     * Required: false
-     * Codename: prefix
-     * Id: a4308aff-84ae-5d96-9f1f-5010be8a5278
-     */
-    readonly prefix: Elements.TextElement;
-    /**
-     * Suffixes
-     *
-     * Type: text
-     * Required: false
-     * Codename: suffixes
-     * Id: 20132f59-693c-4383-91da-e0e4fd47f183
-     */
-    readonly suffixes: Elements.TextElement;
-    /**
      * Biography
      *
      * Type: rich_text
@@ -88,6 +70,15 @@ export type Person = CoreContentType<
      * Id: e63e755f-29ce-5c45-9289-365bd7e47adf
      */
     readonly job_title: Elements.TextElement;
+    /**
+     * Chair
+     *
+     * Type: text
+     * Required: false
+     * Codename: chair
+     * Id: 39445f53-8d62-4c53-a365-b325dbc4fe01
+     */
+    readonly chair: Elements.TextElement;
     /**
      * Phone
      *
@@ -125,11 +116,10 @@ export type Person = CoreContentType<
 export type PersonElementCodenames =
   | "first_name"
   | "last_name"
-  | "prefix"
-  | "suffixes"
   | "biography"
   | "image"
   | "job_title"
+  | "chair"
   | "phone"
   | "email"
   | "website";

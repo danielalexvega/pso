@@ -2,12 +2,14 @@ import { Elements } from "@kontent-ai/delivery-sdk";
 import { FC } from "react";
 import ButtonLink from "./ButtonLink";
 import { createElementSmartLink, createItemSmartLink } from "../utils/smartlink";
+import { HeroButton } from "../model";
 
 type HeroImageProps = Readonly<{
   data: {
     headline?: Elements.TextElement;
     subheadline?: Elements.TextElement;
     heroImage?: Elements.AssetsElement;
+    heroButtons?: HeroButton[];
     itemId?: string;
   };
   buttonLink?: string;
@@ -15,26 +17,12 @@ type HeroImageProps = Readonly<{
 }>;
 
 const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
+
+  console.log(data);
   return (
-    <div className="burgundy-theme flex flex-col py-10 lg:py-0 lg:flex-row lg:gap-32">
-      <div className="lg:basis-1/2 pt-10 lg:pt-[104px] pb-10 lg:pb-[160px] flex flex-col items-center lg:items-start gap-10">
-        <h1 className="text-center lg:text-left font-libre text-[64px] md:text-[94px] text-heading-1-color font-bold leading-[64px] md:leading-[78px]"
-          {...createItemSmartLink(data.itemId)}
-          {...createElementSmartLink("headline")}
-        >
-          {data.headline?.value}
-        </h1>
-        <p className="text-center lg:text-left font-sans text-xl text-body-color"
-          {...createItemSmartLink(data.itemId)}
-          {...createElementSmartLink("subheadline")}
-        >{data.subheadline?.value}</p>
-        {buttonLink != "nolink" && (
-          <ButtonLink href={buttonLink ?? "services"}>
-            <p>Explore our services</p>
-          </ButtonLink>
-        )}
-      </div>
-      <div className="lg:basis-1/2"
+    <div className="relative w-full h-[600px] lg:h-[700px]">
+      {/* Full-width background image */}
+      <div className="absolute inset-0"
         {...createItemSmartLink(data.itemId)}
         {...createElementSmartLink("hero_image")}
       >
@@ -42,10 +30,8 @@ const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
           ? (
             data.heroImage.value[0].type?.startsWith('image') ? (
               <img
-                className="object-cover h-full mx-auto"
-                width={660}
-                height={770}
-                src={`${data.heroImage.value[0].url}?auto=format&w=800`}
+                className="object-cover w-full h-full"
+                src={`${data.heroImage.value[0].url}?auto=format&w=1920`}
                 alt={data.heroImage.value[0].description ?? "image-alt"}
               />
             ) : (
@@ -54,12 +40,58 @@ const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
                 autoPlay={true}
                 loop={true}
                 muted={true}
-                width={660}
-                height={770}    
-                className="object-cover h-full mx-auto"
+                className="object-cover w-full h-full"
               />
             )
           ) : <></>}
+      </div>
+      
+      {/* Text overlay */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            <h1 className="text-white font-sans text-[70px] leading-tight mb-6 font-light"
+              {...createItemSmartLink(data.itemId)}
+              {...createElementSmartLink("headline")}
+            >
+              {data.headline?.value}
+            </h1>
+            <p className="text-white font-sans text-[16px] mb-8 leading-relaxed"
+              {...createItemSmartLink(data.itemId)}
+              {...createElementSmartLink("subheadline")}
+            >
+              {data.subheadline?.value}
+            </p>
+            
+            {/* Hero Buttons */}
+            {data.heroButtons && data.heroButtons.length > 0 ? (
+              <div className="flex flex-col sm:flex-row gap-4"
+                {...createItemSmartLink(data.itemId)}
+                {...createElementSmartLink("hero_links")}
+              >
+                {data.heroButtons.map((heroButton) => (
+                  <ButtonLink 
+                    key={heroButton.system.id} 
+                    href="#"
+                    className="bg-transparent border-2 border-white text-white hover:bg-pct_purple hover:text-white px-4 py-2 rounded-[30px] transition-colors"
+                  >
+                    {heroButton.elements.button_text.value || "Learn More"}
+                  </ButtonLink>
+                ))}
+              </div>
+            ) : (
+              /* Fallback to legacy buttonLink prop */
+              buttonLink != "nolink" && (
+                <ButtonLink 
+                  href={buttonLink ?? "services"}
+                  className="bg-transparent border-2 border-azure text-white hover:bg-azure hover:text-white px-6 py-3 rounded-lg transition-colors"
+                >
+                  Explore our test
+                </ButtonLink>
+              )
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -18,13 +18,13 @@ import type { CoreContentType } from "../system/index.ts";
 import type { Page } from "./index.ts";
 
 /**
- * Call to action
+ * PSO CTA
  *
- * Id: a9196b8d-6320-4feb-aa25-14637761dcc6
- * Codename: call_to_action
+ * Id: 4d91ac1e-9a6a-4171-8f2c-e21a81b5ef5e
+ * Codename: call_to_action__copy_
  */
-export type CallToAction = CoreContentType<
-  CallToActionElementCodenames,
+export type PSOCTA = CoreContentType<
+  PSOCTAElementCodenames,
   {
     /**
      * Headline
@@ -32,7 +32,7 @@ export type CallToAction = CoreContentType<
      * Type: text
      * Required: true
      * Codename: headline
-     * Id: c3cc46c3-d5d3-4241-a83c-b4bb903f9a88
+     * Id: 497e4eb5-d1cc-46a3-80ab-75f0d9744f42
      */
     readonly headline: Elements.TextElement;
     /**
@@ -41,7 +41,7 @@ export type CallToAction = CoreContentType<
      * Type: text
      * Required: true
      * Codename: subheadline
-     * Id: eee46d3e-4f6e-440a-8003-2503d43d5a15
+     * Id: 380d9f04-a401-45e3-9a7e-f8191e035d32
      */
     readonly subheadline: Elements.TextElement;
     /**
@@ -50,25 +50,16 @@ export type CallToAction = CoreContentType<
      * Type: asset
      * Required: true
      * Codename: image
-     * Id: 8f312d9d-d8a2-484a-96c0-39391bf090db
+     * Id: 52d7ca2b-4bca-40e7-93c1-03e842082ab4
      */
     readonly image: Elements.AssetsElement;
-    /**
-     * Image position
-     *
-     * Type: multiple_choice
-     * Required: true
-     * Codename: image_position
-     * Id: ad7b515d-6fb0-46bd-9cd6-ca5dc1211ee2
-     */
-    readonly image_position: Elements.MultipleChoiceElement<"left" | "right" | "center">;
     /**
      * Button Label
      *
      * Type: text
      * Required: true
      * Codename: button_label
-     * Id: ca581835-4337-4add-bdd3-aa466c685514
+     * Id: 920106eb-31e7-4ca0-8e2d-a9d03039c815
      */
     readonly button_label: Elements.TextElement;
     /**
@@ -77,30 +68,24 @@ export type CallToAction = CoreContentType<
      * Type: modular_content
      * Required: false
      * Codename: button_link
-     * Id: 1872121b-6166-451e-8c26-9c78f2cfba47
+     * Id: b197adf6-5c99-4516-a366-49981add112d
      */
     readonly button_link: Elements.LinkedItemsElement<Page>;
   },
-  "call_to_action"
+  "call_to_action__copy_"
 >;
 
 /**
- * Type representing all available element codenames for Call to action
+ * Type representing all available element codenames for PSO CTA
  */
-export type CallToActionElementCodenames =
-  | "headline"
-  | "subheadline"
-  | "image"
-  | "image_position"
-  | "button_label"
-  | "button_link";
+export type PSOCTAElementCodenames = "headline" | "subheadline" | "image" | "button_label" | "button_link";
 
 /**
- * Type guard for Call to action
+ * Type guard for PSO CTA
  *
- * Id: a9196b8d-6320-4feb-aa25-14637761dcc6
- * Codename: call_to_action
+ * Id: 4d91ac1e-9a6a-4171-8f2c-e21a81b5ef5e
+ * Codename: call_to_action__copy_
  */
-export function isCallToAction(item: CoreContentType | undefined | null): item is CallToAction {
-  return item?.system?.type === "call_to_action";
+export function isPSOCTA(item: CoreContentType | undefined | null): item is PSOCTA {
+  return item?.system?.type === "call_to_action__copy_";
 }

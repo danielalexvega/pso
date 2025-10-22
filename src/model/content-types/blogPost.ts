@@ -6,19 +6,21 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: Pittsburgh Cultural Trust 🐧
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
+import type { BlogType } from "../taxonomies/index.ts";
 import type { CoreContentType } from "../system/index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
+import type { Person } from "./index.ts";
 
 /**
- * Blog Post
+ * ✍🏼 Blog Post
  *
  * Id: 336302c0-0634-4974-b33b-8c7b0469e837
  * Codename: blog_post
@@ -54,12 +56,39 @@ export type BlogPost = CoreContentType<
      */
     readonly body: Elements.RichTextElement<CoreContentType>;
     /**
-     * URL Slug
+     * Blog Type
+     *
+     * Type: taxonomy
+     * Required: false
+     * Codename: blog_type
+     * Id: 9b65e14e-4efc-4818-ae1f-9ef341e0795d
+     */
+    readonly blog_type: Elements.TaxonomyElement<BlogType, "blog_type">;
+    /**
+     * Author
+     *
+     * Type: modular_content
+     * Required: false
+     * Codename: author
+     * Id: 58ba0a81-41bc-4212-880b-216f311a03fd
+     */
+    readonly author: Elements.LinkedItemsElement<Person>;
+    /**
+     * Photo Credits
+     *
+     * Type: modular_content
+     * Required: false
+     * Codename: photo_credits
+     * Id: dd328157-3082-46ba-a8aa-5020002ecce1
+     */
+    readonly photo_credits: Elements.LinkedItemsElement<Person>;
+    /**
+     * URL slug
      *
      * Type: url_slug
      * Required: true
      * Codename: url_slug
-     * Id: 574faf3f-4f42-430e-9227-a361a237ce61
+     * Id: cfdddb6d-ae75-431b-ac02-af463468d86b
      */
     readonly url_slug: Elements.UrlSlugElement;
   } & Metadata,
@@ -67,19 +96,22 @@ export type BlogPost = CoreContentType<
 >;
 
 /**
- * Type representing all available element codenames for Blog Post
+ * Type representing all available element codenames for ✍🏼 Blog Post
  */
 export type BlogPostElementCodenames =
   | "title"
   | "image"
   | "body"
+  | "blog_type"
+  | "author"
+  | "photo_credits"
   | "metadata__title"
   | "metadata__keywords"
   | "metadata__description"
   | "url_slug";
 
 /**
- * Type guard for Blog Post
+ * Type guard for ✍🏼 Blog Post
  *
  * Id: 336302c0-0634-4974-b33b-8c7b0469e837
  * Codename: blog_post
