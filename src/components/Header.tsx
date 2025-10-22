@@ -4,7 +4,7 @@ import IconUnitedStates from "../icons/IconUnitedStates";
 // import Container from "./Container";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
-import TopNavigation from "./TopNavigation";
+// import TopNavigation from "./TopNavigation";
 import { IconButton } from "../icons/IconButton";
 
 const Header: React.FC = () => {
@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const lang = searchParams.get("lang");
 
   return (
-    <div className="bg-pct_purple">
+    <div className="bg-black">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo on the left */}
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
           
           {/* Right side with TopNavigation and Navigation */}
           <div className="flex flex-col items-end gap-4">
-            <TopNavigation />
+            {/* <TopNavigation /> */}
             <Navigation />
           </div>
         </div>
